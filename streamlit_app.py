@@ -89,3 +89,4 @@ with st.container():
             for idx, (term, definition) in enumerate(flashcards.items(), 1):
                 with st.expander(f"{idx}. {term}"):
                     st.markdown(f"<p style='font-size:16px;'>{definition}</p>", unsafe_allow_html=True)
+
