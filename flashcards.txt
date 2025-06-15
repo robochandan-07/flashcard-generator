@@ -1,0 +1,180 @@
+Here's a breakdown of the notes into flashcards.  Due to the length and complexity of some definitions, some flashcards might contain more information than a typical flashcard for better understanding.
+
+
+**Flashcard 1**
+File for Skill Based Mini Project | A report documenting a skill-based mini project in Data Science.
+
+
+**Flashcard 2**
+Data Science (2240522) | Course code for the Data Science course involved in the project.
+
+
+**Flashcard 3**
+Bachelor of Technology | The undergraduate degree program the project contributes towards.
+
+
+**Flashcard 4**
+Artificial Intelligence and Robotics | The specific specialization within the Bachelor of Technology program.
+
+
+**Flashcard 5**
+Chandan Singh - 0901AI221021 | Name and student ID of the primary submitter.
+
+
+**Flashcard 6**
+Dr. Abhishek Bhatt |  Professor guiding the project.
+
+
+**Flashcard 7**
+Prof. Khemchand Shakywar | Another professor involved in the project supervision.
+
+
+**Flashcard 8**
+Centre for Artificial Intelligence | The department within the university where the project was undertaken.
+
+
+**Flashcard 9**
+July-Dec 2024 | The project's duration.
+
+
+**Flashcard 10**
+Declaration by the Candidate | A statement by the students confirming the originality of their work.
+
+
+**Flashcard 11**
+Madhav Institute of Technology and Science, Gwalior | The university where the project was conducted.
+
+
+**Flashcard 12**
+Deemed University | Indicates the university's status as recognized by the government.
+
+
+**Flashcard 13**
+NAAC ACCREDITED WITH A++ Grade | Shows the university's high accreditation from the National Assessment and Accreditation Council.
+
+
+**Flashcard 14**
+Certificate | Formal documentation verifying the project's completion and submission.
+
+
+**Flashcard 15**
+Chandraveer Singh Rajput - 0901AI221022, Deepak Patidar - 0901AI221023, Dev Sharma - 0901AI221024, Devyanshi Bhatane - 0901AI221025 | Names and student IDs of other students involved in the project.
+
+
+**Flashcard 16**
+Acknowledgement | Section expressing gratitude to individuals and entities who supported the project.
+
+
+**Flashcard 17**
+Table of Contents | List of chapters and sections in the project report.
+
+
+**Flashcard 18**
+Micro Project | A smaller project within the larger project scope (Joining DataFrames).
+
+
+**Flashcard 19**
+DataFrame | A two-dimensional labeled data structure in Pandas, analogous to a spreadsheet or SQL table.
+
+
+**Flashcard 20**
+Joining DataFrames | Combining data from multiple DataFrames based on common columns or indices.
+
+
+**Flashcard 21**
+Inner Join | Returns rows with matching values in both DataFrames.
+
+
+**Flashcard 22**
+Left Join | Returns all rows from the left DataFrame and matching rows from the right.
+
+
+**Flashcard 23**
+Right Join | Returns all rows from the right DataFrame and matching rows from the left.
+
+
+**Flashcard 24**
+Outer Join | Returns all rows from both DataFrames, including those with missing matches.
+
+
+**Flashcard 25**
+Join Keys | Common columns used for matching rows during a join operation.
+
+
+**Flashcard 26**
+Macro Project | A larger project within the larger scope (Drawing a correlation matrix).
+
+
+**Flashcard 27**
+Correlation Matrix | A table showing correlation coefficients between variables in a dataset.
+
+
+**Flashcard 28**
+Correlation Coefficient | A measure quantifying the strength and direction of the linear relationship between two variables (ranges from -1 to +1).
+
+
+**Flashcard 29**
+Pandas | A Python library for data manipulation and analysis.
+
+
+**Flashcard 30**
+Matplotlib | A Python library for creating static, animated, and interactive visualizations.
+
+
+**Flashcard 31**
+Mini Project | The main project focusing on linear and logistic regression.
+
+
+**Flashcard 32**
+Linear Regression | A statistical method modeling the relationship between a dependent and one or more independent variables.
+
+
+**Flashcard 33**
+Logistic Regression | A statistical method for binary classification, predicting the probability of an input belonging to a specific class.
+
+
+**Flashcard 34**
+Sigmoid Function | A mathematical function used in logistic regression to produce probabilities between 0 and 1.
+
+
+**Flashcard 35**
+Scikit-Learn (sklearn) | A Python library for machine learning tasks.
+
+
+**Flashcard 36**
+Mean Squared Error (MSE) | A metric evaluating the average squared difference between predicted and actual values in regression.
+
+
+**Flashcard 37**
+R-squared (R²) | A metric representing the proportion of variance in the dependent variable explained by the independent variables in regression.
+
+
+**Flashcard 38**
+Confusion Matrix | A table showing the counts of True Positives, True Negatives, False Positives, and False Negatives in classification.
+
+
+**Flashcard 39**
+True Positive (TP) | Correctly predicting a positive case.
+
+
+**Flashcard 40**
+True Negative (TN) | Correctly predicting a negative case.
+
+
+**Flashcard 41**
+False Positive (FP) | Incorrectly predicting a positive case (Type I error).
+
+
+**Flashcard 42**
+False Negative (FN) | Incorrectly predicting a negative case (Type II error).
+
+
+**Flashcard 43**
+Sensitivity (Recall) | The proportion of actual positives correctly identified (TP / (TP + FN)).
+
+
+**Flashcard 44**
+Specificity | The proportion of actual negatives correctly identified (TN / (TN + FP)).
+
+
+This provides a comprehensive set of flashcards covering the provided notes. Remember to use the flashcards actively – test yourself regularly to improve retention.

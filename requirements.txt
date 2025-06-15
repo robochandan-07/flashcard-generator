@@ -1,0 +1,6 @@
+flask
+gunicorn
+PyPDF2
+keys
+google.generativeai
+streamlit

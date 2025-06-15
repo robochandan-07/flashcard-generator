@@ -1,0 +1,11 @@
+# PDF Flashcard Generator with Gemini API
+
+Upload a PDF file and generate study flashcards using Google's Gemini model via Streamlit.
+
+## Features
+- PDF Upload
+- Auto text extraction
+- Flashcard generation with Gemini 1.5
+
+## Live Demo
+[Will appear after deployment]

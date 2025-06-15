@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flashcards</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        let currentCardIndex = 0;
+        function showCard(index) {
+            const cards = document.querySelectorAll('.flashcard');
+            cards.forEach((card, i) => {
+                card.style.display = (i === index) ? 'block' : 'none';
+                card.classList.remove('fade-in');
+                if (i === index) {
+                    void card.offsetWidth; // Force reflow for animation
+                    card.classList.add('fade-in');
+                }
+            });
+        }
+
+        function nextCard() {
+            const cards = document.querySelectorAll('.flashcard');
+            currentCardIndex = (currentCardIndex + 1) % cards.length;
+            showCard(currentCardIndex);
+        }
+
+        function prevCard() {
+            const cards = document.querySelectorAll('.flashcard');
+            currentCardIndex = (currentCardIndex - 1 + cards.length) % cards.length;
+            showCard(currentCardIndex);
+        }
+
+        function toggleDefinition(keyword) {
+            const definition = document.getElementById(`definition-${keyword}`);
+            definition.style.display = (definition.style.display === 'none') ? 'block' : 'none';
+        }
+
+        window.onload = () => {
+            showCard(currentCardIndex);
+        };
+    </script>
+</head>
+<body>
+    <h1>Flashcards</h1>
+
+    <div class="navigation">
+        <button onclick="prevCard()">Previous</button>
+        <button onclick="nextCard()">Next</button>
+    </div>
+
+    <div class="flashcard-container">
+        {% for keyword, definition in flashcards.items() %}
+        <div class="flashcard" onclick="toggleDefinition('{{ keyword }}')">
+            <div class="flashcard-keyword">{{ keyword }}</div>
+            <div id="definition-{{ keyword }}" class="flashcard-definition" style="display: none;">{{ definition }}</div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

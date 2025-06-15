@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #f8f9fa, #e3f2fd);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+h1 {
+    color: #061a2e;
+    margin-top: 30px;
+    font-size: 3em;
+    text-shadow: 1px 1px #b2bec3;
+}
+
+.navigation {
+    margin: 20px 0;
+}
+
+.navigation button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 1em;
+    border: none;
+    background-color: #6c5ce7;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.navigation button:hover {
+    background-color: #4834d4;
+}
+
+/* Flashcard Container - now only centers one */
+.flashcard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    min-height: 300px;
+    position: relative;
+}
+
+/* Individual Flashcard */
+.flashcard {
+    background: linear-gradient(to bottom right, #74b9ff, #9691de);
+    color: #120101;
+    width: 300px;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    cursor: pointer;
+    position: absolute;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.5s ease;
+    opacity: 0;
+    display: none;
+}
+
+.flashcard.fade-in {
+    opacity: 1;
+}
+
+.flashcard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(196, 184, 184, 0.3);
+}
+
+.flashcard-keyword {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px #88dfff;
+}
+
+.flashcard-definition {
+    font-size: 1em;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
