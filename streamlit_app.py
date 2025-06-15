@@ -1,58 +1,91 @@
-import os
 import streamlit as st
 from PyPDF2 import PdfReader
-import keys
+import os
 import google.generativeai as genai
 
-# Configure Gemini
-genai.configure(api_key=keys.api_key)
+# Gemini API key
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 model = genai.GenerativeModel('gemini-1.5-flash')
 
-# PDF Text Extraction
-def extract_text_from_pdf(pdf_file):
-    text = ''
-    reader = PdfReader(pdf_file)
-    for page in reader.pages:
-        extracted = page.extract_text()
-        if extracted:
-            text += extracted + "\n\n"
-    return text
+# Title
+st.set_page_config(page_title="Flashcard Generator", layout="centered")
 
-# Create Flashcards
-def create_flashcards(notes):
-    system_prompt = (
-        "Take in the following notes. For each key word or key phrase, "
-        "write the key phrase first, then the '|' delimiter, then the definition. "
-        "Avoid using '|' within definitions or key phrases. "
-        "Make as many flashcards as possible to cover all content."
-    )
-    prompt = system_prompt + "\n\n" + notes
-    response = model.generate_content(prompt)
-    flashcards_t = response.text
+# CSS Styling (converted from your style1.css)
+st.markdown("""
+    <style>
+    * {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .stApp {
+        background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+        position: relative;
+        overflow: hidden;
+    }
+    h1 {
+        color: #333;
+        font-size: 2.5rem;
+        text-shadow: 1px 1px 2px #fff;
+        margin-bottom: 30px;
+    }
+    .upload-box {
+        background: rgb(236, 236, 236);
+        padding: 30px 40px;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+    .upload-box:hover {
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    }
+    .background-overlay {
+        background-image: url("https://cdn-icons-png.flaticon.com/512/3909/3909444.png");
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        opacity: 0.05;
+        z-index: 0;
+    }
+    </style>
+    <div class="background-overlay"></div>
+""", unsafe_allow_html=True)
 
-    flashcards = flashcards_t.split("\n")
-    cards_dict = {}
-    for card in flashcards:
-        if "|" in card:
-            parts = card.split("|", 1)
-            cards_dict[parts[0].strip()] = parts[1].strip()
-    return cards_dict
+st.markdown("<h1 style='text-align:center;'>Flashcard Generator</h1>", unsafe_allow_html=True)
 
-# Streamlit UI
-st.title("📄 PDF to Flashcard Generator")
+# File uploader section
+with st.container():
+    uploaded_file = st.file_uploader("Upload a PDF file", type=["pdf"])
+    if uploaded_file:
+        with st.spinner("Reading PDF..."):
+            reader = PdfReader(uploaded_file)
+            raw_text = ''
+            for page in reader.pages:
+                content = page.extract_text()
+                if content:
+                    raw_text += content + "\n\n"
 
-uploaded_file = st.file_uploader("Upload a PDF", type="pdf")
+        if st.button("Generate Flashcards"):
+            with st.spinner("Generating flashcards with Gemini..."):
+                system_prompt = (
+                    "Take in the following notes. For each key word or key phrase, "
+                    "write the key phrase first, then the '|' delimiter, then the definition. "
+                    "Avoid using '|' within definitions or key phrases. "
+                    "Make as many flashcards as possible to cover all content."
+                )
+                prompt = system_prompt + "\n\n" + raw_text
+                response = model.generate_content(prompt)
+                flashcards_text = response.text
+                flashcards = {}
+                for line in flashcards_text.split("\n"):
+                    if "|" in line:
+                        term, definition = line.split("|", 1)
+                        flashcards[term.strip()] = definition.strip()
 
-if uploaded_file:
-    with st.spinner("Reading PDF..."):
-        text = extract_text_from_pdf(uploaded_file)
-    
-    if st.button("Generate Flashcards"):
-        with st.spinner("Generating flashcards using Gemini..."):
-            flashcards = create_flashcards(text)
-        st.success("Flashcards Generated!")
-        
-        st.subheader("🧠 Flashcards")
-        for i, (key, definition) in enumerate(flashcards.items(), 1):
-            with st.expander(f"{i}. {key}"):
-                st.write(definition)
+            st.success("Flashcards created successfully!")
+            st.subheader("📚 Flashcards")
+
+            for idx, (term, definition) in enumerate(flashcards.items(), 1):
+                with st.expander(f"{idx}. {term}"):
+                    st.markdown(f"<p style='font-size:16px;'>{definition}</p>", unsafe_allow_html=True)
