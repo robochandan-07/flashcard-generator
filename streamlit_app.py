@@ -39,7 +39,7 @@ def create_flashcards(notes):
     return cards_dict
 
 # Streamlit UI
-st.title("📄 PDF to Flashcard Generator")
+st.title("Flashcards Generator")
 
 uploaded_file = st.file_uploader("Upload a PDF", type="pdf")
 
